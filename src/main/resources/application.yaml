@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: Unimed Fortaleza - Api Servicos V2
+    since: 17/05/2024
+    version: v1.0.0
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 8081
+
+management:
+  server:
+    port: 8080
+  endpoints:
+    web:
+      base-path: /act
+      exposure:
+        include: health,info,prometheus,liveness,readiness
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+
+logging:
+  level:
+    root: INFO
+    br.com.ifood.platform: DEBUG
+    org.springframework: WARN
+
+web:
+  cors:
+    allowed-origins: "*"
+    allowed-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD
+    max-age: 3600
+
+jdbc:
+  username: ${DB_USER:}
+  password: ${DB_PASS:}
+  jdbcDriverName: org.postgresql.Driver
+  initSql: 'SELECT 1'
+  dtProperties:
+    url: ${DB_URL:}
+    maxPoolSize: 5
+    maxLifetimeInMinutes: 10
+    leakDetectionThresholdInMilliseconds: 6000
+    connectionTimeoutInMilliseconds: 30000
