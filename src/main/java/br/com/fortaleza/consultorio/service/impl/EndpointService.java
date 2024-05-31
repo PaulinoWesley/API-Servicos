@@ -36,12 +36,12 @@ public class EndpointService implements IEndpointService {
     }
 
     @Override
-    public Page<EndpointDTO> list(EndpointModel model, Pageable pageable) throws BusinessException {
+    public Page<EndpointDTO> list(EndpointDTO dto, Pageable pageable) throws BusinessException {
         return null;
     }
 
     @Override
-    public EndpointDTO saveOrUpdate(EndpointModel model) throws BusinessException, SQLIntegrityConstraintViolationException {
+    public EndpointDTO saveOrUpdate(EndpointDTO dto) throws BusinessException, SQLIntegrityConstraintViolationException {
         return null;
     }
 

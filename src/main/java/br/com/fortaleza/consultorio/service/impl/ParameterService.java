@@ -28,12 +28,12 @@ public class ParameterService implements IParameterService {
     }
 
     @Override
-    public Page<ParameterDTO> list(ParameterModel model, Pageable pageable) throws BusinessException {
+    public Page<ParameterDTO> list(ParameterDTO dto, Pageable pageable) throws BusinessException {
         return null;
     }
 
     @Override
-    public ParameterDTO saveOrUpdate(ParameterModel model) throws BusinessException, SQLIntegrityConstraintViolationException {
+    public ParameterDTO saveOrUpdate(ParameterDTO dto) throws BusinessException, SQLIntegrityConstraintViolationException {
         return null;
     }
 

@@ -20,8 +20,6 @@ public class EndpointFactory {
                 .classifier(classifierFactory.toModel(dto.getClassifier()))
                 .key(dto.getKey())
                 .description(dto.getDescription())
-                .username(dto.getUsername())
-                .password(dto.getPassword())
                 .token(dto.getToken())
                 .url(dto.getUrl())
                 .build();
@@ -33,8 +31,6 @@ public class EndpointFactory {
                 .classifier(classifierFactory.toDTO(model.getClassifier()))
                 .key(model.getKey())
                 .description(model.getDescription())
-                .username(model.getUsername())
-                .password(model.getPassword())
                 .token(model.getToken())
                 .url(model.getUrl())
                 .build();
