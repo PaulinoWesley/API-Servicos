@@ -11,7 +11,7 @@ services:
 
   migration:
     image: flyway/flyway:9:22:3
-    command: -community -url=jdbc:postgresql://postgres:5432/postgres -schemas=public -user=postgres -password=admin -connectRetries=60 migrate
+    command: -community -url=jdbc:postgresql://postgres:5432/consult_fortaleza -schemas=public -user=postgres -password=admin -connectRetries=60 migrate
     volumes:
       - ./db-schema/migration/sql:/flyway/sql
     depends_on:

@@ -1,9 +1,6 @@
 package br.com.fortaleza.consultorio.model;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -11,7 +8,8 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class ClassifierModel {
     private UUID id;

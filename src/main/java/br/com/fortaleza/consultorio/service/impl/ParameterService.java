@@ -6,7 +6,6 @@ import br.com.fortaleza.consultorio.exception.BadRequestException;
 import br.com.fortaleza.consultorio.exception.BusinessException;
 import br.com.fortaleza.consultorio.exception.NotFoundException;
 import br.com.fortaleza.consultorio.factory.ParameterFactory;
-import br.com.fortaleza.consultorio.model.ParameterModel;
 import br.com.fortaleza.consultorio.service.IParameterService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
