@@ -43,6 +43,9 @@ public class ClassifierBusiness implements IClassifierBusiness {
 
     @Override
     public Page<ClassifierModel> list(ClassifierModel model, Pageable pageable) throws BusinessException {
+        if (pageable == null)
+            throw new BusinessException("É necessário informar a paginação.");
+
         return roRepository.list(model, pageable);
     }
 
@@ -66,7 +69,6 @@ public class ClassifierBusiness implements IClassifierBusiness {
             throw new NotFoundException("Identificador do classifier não foi encontrado.");
 
         rwRepository.delete(id);
-
     }
 
     private static void validateValues(ClassifierModel model) throws BusinessException {
