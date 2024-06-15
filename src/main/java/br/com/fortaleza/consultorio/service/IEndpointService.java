@@ -6,6 +6,6 @@ import br.com.fortaleza.consultorio.model.EndpointModel;
 
 import java.util.Optional;
 
-public interface IEndpointService extends IBaseService<EndpointModel, EndpointDTO> {
+public interface IEndpointService extends IBaseService<EndpointDTO> {
     Optional<EndpointModel> findByKey(String key) throws NotFoundException;
 }

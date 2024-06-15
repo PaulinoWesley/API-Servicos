@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 
-public interface IBaseService<M, D> {
+public interface IBaseService<D> {
     D findById(String id) throws NotFoundException, BadRequestException;
     Page<D> list(D dto, Pageable pageable) throws BusinessException;
     D saveOrUpdate(D dto) throws BusinessException, SQLIntegrityConstraintViolationException;
