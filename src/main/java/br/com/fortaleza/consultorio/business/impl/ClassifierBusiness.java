@@ -30,7 +30,7 @@ public class ClassifierBusiness implements IClassifierBusiness {
 
     @Override
     public ClassifierModel findById(String id) throws NotFoundException, BadRequestException {
-        if (id.isEmpty() || isValidUuid(id))
+        if (id == null || isValidUuid(id))
             throw new BadRequestException("O identificador do classifier não foi informado ou é inválido.");
 
         Optional<ClassifierModel> toReturn = roRepository.findById(UUID.fromString(id));
@@ -51,13 +51,15 @@ public class ClassifierBusiness implements IClassifierBusiness {
 
     @Override
     public ClassifierModel saveOrUpdate(ClassifierModel model) throws SQLIntegrityConstraintViolationException, BusinessException {
-        validateValues(model);
+        if (model.getValue() != null && model.getValue().isBlank())
+            throw new BusinessException("O atributo value informado não é válido.");
+        if (model.getType() != null && model.getType().isBlank())
+            throw new BusinessException("O atributo type não é válido.");
 
         if (model.getId() == null) {
             model.setId(UUID.randomUUID());
             return save(model);
         }
-
         return update(model);
     }
 
@@ -69,13 +71,6 @@ public class ClassifierBusiness implements IClassifierBusiness {
             throw new NotFoundException("Identificador do classifier não foi encontrado.");
 
         rwRepository.delete(id);
-    }
-
-    private static void validateValues(ClassifierModel model) throws BusinessException {
-        if (model.getValue().isBlank() || model.getValue().isEmpty())
-            throw new BusinessException("O atributo value informado não é válido.");
-        if (model.getType().isBlank() || model.getType().isEmpty())
-            throw new BusinessException("O atributo type não é válido.");
     }
 
     private ClassifierModel save(ClassifierModel model) throws SQLIntegrityConstraintViolationException, BusinessException {
